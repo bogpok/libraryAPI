@@ -19,22 +19,22 @@ items = []
 def root():
     return {'hello':'world'}
 
-@app.post('/items')
-def create_item(item: Item):
-    items.append(item)
-    return items
+# @app.post('/items')
+# def create_item(item: Item):
+#     items.append(item)
+#     return items
 
-@app.get('/items', response_model=list[Item])
-def list_items(limit:int = 10):
-    return items[0:limit]
+# @app.get('/items', response_model=list[Item])
+# def list_items(limit:int = 10):
+#     return items[0:limit]
 
-@app.get('/items/{item_id}', response_model=Item)
-def get_item(item_id: int) -> Item:
-    try:
-        item = items[item_id]
-        return item
-    except:
-        raise HTTPException(status_code=404, detail=f'Item {item_id} not found')
+# @app.get('/items/{item_id}', response_model=Item)
+# def get_item(item_id: int) -> Item:
+#     try:
+#         item = items[item_id]
+#         return item
+#     except:
+#         raise HTTPException(status_code=404, detail=f'Item {item_id} not found')
 
 # BOOK ROUTES
 @app.get('/books')
@@ -67,7 +67,7 @@ def add_book(book: Book) -> str:
     
     return f"created ObjectId('{r.inserted_id}')"
 
-# PUT to change whole book
+
 
 # patch to change details of the book
 @app.patch('/books/{book_id}')
@@ -84,9 +84,49 @@ def edit_book(book_id: str, book: UpdateBook):
             filter,
             {"$set":dict(book.model_dump(exclude_unset=True))}
         )
-        return {'message':f'mathed: {updated_result.matched_count}, updated: {updated_result.modified_count}'} 
+        return {'message':f'matched: {updated_result.matched_count}, updated: {updated_result.modified_count}'} 
         
     else:
         return {"error": "Item not found"}
 
+@app.patch('/books/')    
+def edit_book_many(ids: list[str], books: list[UpdateBook]):        
+    resp = []
+    for i in range(len(ids)):
+        resp.append(edit_book(ids[i], books[i]))
+    return resp
+
+
+    
+
+def find_and_operate(operation_func):
+    def inner1(book_id: str):
+
+        try:
+            filter = {'_id': ObjectId(book_id)}
+            r = coll_books.find_one(filter)
+        except:
+            return {"error": "Not valid Id"}
+        
+        if r:
+            return operation_func(book_id, filter)
+            
+        else:
+            return {"error": "Item not found"}
+    return inner1
+
+
+
+# DELETE BOOK
+@app.delete('/books/{book_id}')
+@find_and_operate
+def delete_book(book_id: str, *args):
+    filter = args[0]
+    print(book_id)
+    r = coll_books.delete_one(filter)
+    return {'message':f'successfully deleted: {r.deleted_count}'} 
+
+
 # lease?
+
+# PUT to change whole book
