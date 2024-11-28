@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from classes import Item, Book
+from classes import Item, Book, UpdateBook
 from utils import mongo_serialize
 
 app = FastAPI()
@@ -70,8 +70,23 @@ def add_book(book: Book) -> str:
 # PUT to change whole book
 
 # patch to change details of the book
-@app.patch('/books')
-def edit_book():
-    pass
+@app.patch('/books/{book_id}')
+def edit_book(book_id: str, book: UpdateBook):
+    try:
+        filter = {'_id': ObjectId(book_id)}
+        r = coll_books.find_one(filter)
+    except:
+        return {"error": "Not valid Id"}
+    
+    if r:
+        print(dict(book.model_dump(exclude_unset=True)))
+        updated_result = coll_books.update_one(
+            filter,
+            {"$set":dict(book.model_dump(exclude_unset=True))}
+        )
+        return {'message':f'mathed: {updated_result.matched_count}, updated: {updated_result.modified_count}'} 
+        
+    else:
+        return {"error": "Item not found"}
 
 # lease?
