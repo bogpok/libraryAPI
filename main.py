@@ -38,9 +38,19 @@ def root():
 
 # BOOK ROUTES
 @app.get('/books')
-def list_books():
-    "List all books"
-    r = [mongo_serialize(book) for book in coll_books.find()]
+def list_books(
+    name: str | None = None, 
+    author: str | None = None, 
+    year: int | None = None):
+    """List all books"""
+    filter = {}
+    if name:
+        filter['name'] = {'$regex':name, '$options':'i'} 
+    if author:
+        filter['author'] = {'$regex':author, '$options':'i'} 
+    if year:
+        filter['year'] = year
+    r = [mongo_serialize(book) for book in coll_books.find(filter)]
     print(r)
     if r:
         return r

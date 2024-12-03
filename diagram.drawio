@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
   <diagram name="Page-1" id="42_Ycnn-wfXWyG1L4Q6r">
-    <mxGraphModel dx="1114" dy="1665" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1371" dy="1665" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -321,28 +321,25 @@
           <mxGeometry x="225" y="-720" width="70" height="30" as="geometry" />
         </mxCell>
         <mxCell id="9QODUFyX4ZdGs9hXP-bm-6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Reader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ field: Type&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ createLoan(book: Book): none&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ (loan_id)&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="200" y="-400" width="160" height="142" as="geometry" />
+          <mxGeometry x="210" y="-400" width="160" height="142" as="geometry" />
         </mxCell>
         <mxCell id="9QODUFyX4ZdGs9hXP-bm-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Book&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ id: int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ available: bool&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ checkAvailability(id: int): bool&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="484" y="-318" width="160" height="90" as="geometry" />
+          <mxGeometry x="450" y="-209" width="160" height="90" as="geometry" />
         </mxCell>
         <mxCell id="9QODUFyX4ZdGs9hXP-bm-8" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Loan&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ id: int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ book: int&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ method(): Type&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="210" y="-228" width="160" height="128" as="geometry" />
         </mxCell>
         <mxCell id="9QODUFyX4ZdGs9hXP-bm-9" value="/book/?author=abc&amp;amp;date_published=..." style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="225" y="-750" width="220" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="9QODUFyX4ZdGs9hXP-bm-10" value="/returnBook/{id}" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="190" y="-630" width="100" height="30" as="geometry" />
+          <mxGeometry x="230" y="-750" width="220" height="30" as="geometry" />
         </mxCell>
         <mxCell id="9QODUFyX4ZdGs9hXP-bm-11" value="{&#39;is_available&#39;: true }" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="185" y="-600" width="130" height="30" as="geometry" />
+          <mxGeometry x="255" y="-645" width="130" height="30" as="geometry" />
         </mxCell>
         <mxCell id="9QODUFyX4ZdGs9hXP-bm-12" value="PATCH" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="300" y="-630" width="60" height="30" as="geometry" />
+          <mxGeometry x="430" y="-650" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="9QODUFyX4ZdGs9hXP-bm-13" value="&lt;div&gt;library.com/v1/book/{id}/return/&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="90" y="-670" width="180" height="30" as="geometry" />
+          <mxGeometry x="230" y="-680" width="180" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

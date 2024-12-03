@@ -22,7 +22,6 @@ http://127.0.0.1:8000/docs
 
 ## Objectives
 
-- Connect mongo
 - Make all possible http methods
 - Draw all possible diagrams
 
